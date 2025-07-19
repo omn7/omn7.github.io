@@ -16,7 +16,7 @@
     --popover: 0 0% 5%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 210 100% 60%;
+    --primary: 348 100% 54%;
     --primary-foreground: 0 0% 5%;
 
     --secondary: 0 0% 8%;
@@ -48,7 +48,7 @@
     --gradient-accent: linear-gradient(90deg, hsl(210 100% 60%), hsl(270 100% 60%));
     
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(var(--hero-glow) / 0.3);
+    --shadow-glow: 0 0 40px hsl(348 100% 54% / 0.5);
     --shadow-card: 0 10px 30px hsl(0 0% 0% / 0.5);
     
     /* Transitions */
@@ -64,4 +64,59 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes glowline {
+  0% { transform: translateX(-50%) scaleX(0.2); opacity: 0.5; }
+  20% { opacity: 1; }
+  50% { transform: translateX(0%) scaleX(1); opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(50%) scaleX(0.2); opacity: 0.5; }
+}
+.animate-glowline {
+  animation: glowline 3s linear infinite;
+}
+
+@keyframes thunder-border {
+  0% {
+    clip-path: inset(0 75% 99% 0 round 12px);
+    box-shadow: 0 0 24px 6px #ff1744;
+    border-color: #ff1744;
+  }
+  25% {
+    clip-path: inset(0 0 75% 0 round 12px);
+    box-shadow: 0 0 24px 6px #ff1744;
+    border-color: #ff1744;
+  }
+  50% {
+    clip-path: inset(99% 0 0 0 round 12px);
+    box-shadow: 0 0 24px 6px #ff1744;
+    border-color: #ff1744;
+  }
+  75% {
+    clip-path: inset(0 0 0 75% round 12px);
+    box-shadow: 0 0 24px 6px #ff1744;
+    border-color: #ff1744;
+  }
+  100% {
+    clip-path: inset(0 75% 99% 0 round 12px);
+    box-shadow: 0 0 24px 6px #ff1744;
+    border-color: #ff1744;
+  }
+}
+.animate-thunder-border {
+  animation: thunder-border 2.5s linear infinite;
+  border: 3px solid #ff1744;
 }

@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowRight, Heart, MessageCircle } from "lucide-react";
+import Navigation from "@/components/Navigation";
 
 const BlogsSection = () => {
   const blogs = [
@@ -82,145 +83,148 @@ const BlogsSection = () => {
   const categories = ["All", "Frontend", "Backend", "AI/ML", "CSS", "Performance", "DevOps"];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4">Blog Posts</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Sharing insights, tutorials, and experiences from my development journey. 
-            Helping fellow developers learn and grow through practical content.
-          </p>
-        </div>
+    <>
+      <Navigation />
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">Blog Posts</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Sharing insights, tutorials, and experiences from my development journey. 
+              Helping fellow developers learn and grow through practical content.
+            </p>
+          </div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant="outline"
-              className="rounded-full border-border hover:bg-nav-hover hover:border-primary transition-all duration-300"
-            >
-              {category}
-            </Button>
-          ))}
-        </div>
+          {/* Category Filter */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant="outline"
+                className="rounded-full border-border hover:bg-nav-hover hover:border-primary transition-all duration-300"
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
 
-        {/* Featured Posts */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-foreground mb-8">Featured Posts</h3>
-          <div className="grid gap-8 md:grid-cols-2">
-            {blogs.filter(blog => blog.featured).map((blog) => (
-              <Card key={blog.id} className="bg-card border-border hover:shadow-card-custom transition-all duration-300 group overflow-hidden">
-                <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between mb-3">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                      {blog.category}
-                    </Badge>
-                    <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20">
-                      Featured
-                    </Badge>
-                  </div>
-                  
-                  <CardTitle className="text-xl text-card-foreground group-hover:text-primary transition-colors leading-tight">
-                    {blog.title}
-                  </CardTitle>
-                  
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      {blog.date}
+          {/* Featured Posts */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-semibold text-foreground mb-8">Featured Posts</h3>
+            <div className="grid gap-8 md:grid-cols-2">
+              {blogs.filter(blog => blog.featured).map((blog) => (
+                <Card key={blog.id} className="bg-card border-border hover:shadow-card-custom transition-all duration-300 group overflow-hidden">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-start justify-between mb-3">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                        {blog.category}
+                      </Badge>
+                      <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20">
+                        Featured
+                      </Badge>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      {blog.readTime}
-                    </div>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="space-y-4">
-                  <CardDescription className="text-card-foreground/80 leading-relaxed">
-                    {blog.excerpt}
-                  </CardDescription>
-
-                  <div className="flex items-center justify-between">
+                    
+                    <CardTitle className="text-xl text-card-foreground group-hover:text-primary transition-colors leading-tight">
+                      {blog.title}
+                    </CardTitle>
+                    
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
-                        <Heart className="h-4 w-4" />
-                        {blog.likes}
+                        <Calendar className="h-4 w-4" />
+                        {blog.date}
                       </div>
                       <div className="flex items-center gap-1">
-                        <MessageCircle className="h-4 w-4" />
-                        {blog.comments}
+                        <Clock className="h-4 w-4" />
+                        {blog.readTime}
                       </div>
                     </div>
-                    
-                    <Button variant="ghost" className="text-primary hover:text-primary/80 p-0 h-auto font-medium group/btn">
-                      Read More
-                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardHeader>
+
+                  <CardContent className="space-y-4">
+                    <CardDescription className="text-card-foreground/80 leading-relaxed">
+                      {blog.excerpt}
+                    </CardDescription>
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Heart className="h-4 w-4" />
+                          {blog.likes}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MessageCircle className="h-4 w-4" />
+                          {blog.comments}
+                        </div>
+                      </div>
+                      
+                      <Button variant="ghost" className="text-primary hover:text-primary/80 p-0 h-auto font-medium group/btn">
+                        Read More
+                        <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* All Posts */}
-        <div>
-          <h3 className="text-2xl font-semibold text-foreground mb-8">All Posts</h3>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.filter(blog => !blog.featured).map((blog) => (
-              <Card key={blog.id} className="bg-card border-border hover:shadow-card-custom transition-all duration-300 group">
-                <CardHeader className="pb-3">
-                  <Badge variant="secondary" className="bg-secondary/50 w-fit mb-2">
-                    {blog.category}
-                  </Badge>
-                  
-                  <CardTitle className="text-lg text-card-foreground group-hover:text-primary transition-colors leading-tight">
-                    {blog.title}
-                  </CardTitle>
-                  
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-3 w-3" />
-                      {blog.date}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" />
-                      {blog.readTime}
-                    </div>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="space-y-4">
-                  <CardDescription className="text-card-foreground/80 text-sm leading-relaxed line-clamp-3">
-                    {blog.excerpt}
-                  </CardDescription>
-
-                  <div className="flex items-center justify-between">
+          {/* All Posts */}
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-8">All Posts</h3>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {blogs.filter(blog => !blog.featured).map((blog) => (
+                <Card key={blog.id} className="bg-card border-border hover:shadow-card-custom transition-all duration-300 group">
+                  <CardHeader className="pb-3">
+                    <Badge variant="secondary" className="bg-secondary/50 w-fit mb-2">
+                      {blog.category}
+                    </Badge>
+                    
+                    <CardTitle className="text-lg text-card-foreground group-hover:text-primary transition-colors leading-tight">
+                      {blog.title}
+                    </CardTitle>
+                    
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
                       <div className="flex items-center gap-1">
-                        <Heart className="h-3 w-3" />
-                        {blog.likes}
+                        <Calendar className="h-3 w-3" />
+                        {blog.date}
                       </div>
                       <div className="flex items-center gap-1">
-                        <MessageCircle className="h-3 w-3" />
-                        {blog.comments}
+                        <Clock className="h-3 w-3" />
+                        {blog.readTime}
                       </div>
                     </div>
-                    
-                    <Button variant="ghost" className="text-primary hover:text-primary/80 p-0 h-auto text-sm font-medium group/btn">
-                      Read
-                      <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-1" />
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardHeader>
+
+                  <CardContent className="space-y-4">
+                    <CardDescription className="text-card-foreground/80 text-sm leading-relaxed line-clamp-3">
+                      {blog.excerpt}
+                    </CardDescription>
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Heart className="h-3 w-3" />
+                          {blog.likes}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <MessageCircle className="h-3 w-3" />
+                          {blog.comments}
+                        </div>
+                      </div>
+                      
+                      <Button variant="ghost" className="text-primary hover:text-primary/80 p-0 h-auto text-sm font-medium group/btn">
+                        Read
+                        <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover/btn:translate-x-1" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

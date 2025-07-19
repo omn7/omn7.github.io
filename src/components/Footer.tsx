@@ -1,100 +1,75 @@
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Twitter, Heart } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const quotes = [
+  "Why do Indian programmers never get lost? They always follow the path variable!",
+  "In India, chai breaks are for debugging life and code.",
+  "My code runs, I don't know why. My code doesn't run, I don't know why. #IndianDeveloper",
+  "Stack Overflow > Google > Mom's advice. The Indian dev's debugging flow.",
+  "If at first you don't succeed, call it version 1.0 (and have some samosas).",
+  "Code like Sharmaji's son is watching!",
+  "Ctrl+C, Ctrl+V: The Indian way to meet deadlines.",
+  "When in doubt, add more masala (or semicolons).",
+  "Why did the Indian coder refuse to use tabs? Because spaces are vastu compliant!",
+  "404: Chai not found. Please refill to continue coding."
+];
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const [quoteIndex, setQuoteIndex] = useState(() => Math.floor(Math.random() * quotes.length));
 
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/johndoe", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/johndoe", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com/johndoe", label: "Twitter" },
-    { icon: Mail, href: "mailto:john@example.com", label: "Email" }
-  ];
-
-  const quickLinks = [
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Resume", href: "#resume" },
-    { label: "Contact", href: "#contact" }
-  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setQuoteIndex((prev) => (prev + 1) % quotes.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <footer className="bg-card border-t border-border">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand Section */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-primary">John Doe</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Full Stack Developer passionate about creating beautiful, functional web applications 
-              that solve real-world problems.
-            </p>
-            <div className="flex space-x-2">
-              {socialLinks.map((social, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  size="icon"
-                  className="h-10 w-10 hover:bg-primary/10 hover:border-primary/20"
-                  asChild
-                >
-                  <a 
-                    href={social.href} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="h-4 w-4" />
-                  </a>
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-foreground">Get In Touch</h4>
-            <div className="space-y-2 text-muted-foreground">
-              <p>📧 john@example.com</p>
-              <p>📱 +1 (555) 123-4567</p>
-              <p>📍 San Francisco, CA</p>
-            </div>
-            <Button className="w-full md:w-auto" asChild>
-              <a href="mailto:john@example.com">
-                <Mail className="mr-2 h-4 w-4" />
-                Send Message
-              </a>
-            </Button>
-          </div>
+    <footer
+      className="border-t border-border py-8"
+      style={{
+        background: "linear-gradient(90deg, #131010 0%, #1a1a1a 100%)"
+      }}
+    >
+      <div className="container mx-auto flex flex-col items-center justify-center gap-3 text-center">
+        <div className="flex gap-5 mb-2">
+          <a
+            href="https://github.com/johndoe"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="rounded-full p-2 bg-white/5 hover:bg-primary/20 transition-all duration-200 shadow-md"
+          >
+            <Github className="h-5 w-5 text-muted-foreground" />
+          </a>
+          <a
+            href="https://linkedin.com/in/johndoe"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="rounded-full p-2 bg-white/5 hover:bg-primary/20 transition-all duration-200 shadow-md"
+          >
+            <Linkedin className="h-5 w-5 text-muted-foreground" />
+          </a>
+          <a
+            href="https://twitter.com/johndoe"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+            className="rounded-full p-2 bg-white/5 hover:bg-primary/20 transition-all duration-200 shadow-md"
+          >
+            <Twitter className="h-5 w-5 text-muted-foreground" />
+          </a>
         </div>
-
-        {/* Bottom Section */}
-        <div className="mt-8 pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-muted-foreground text-sm">
-              © {currentYear} John Doe. All rights reserved.
-            </p>
-            <p className="text-muted-foreground text-sm flex items-center">
-              Made with <Heart className="h-4 w-4 mx-1 text-red-500" /> using React & Tailwind CSS
-            </p>
-          </div>
+        <div className="text-base text-muted-foreground font-semibold">
+          &copy; {new Date().getFullYear()} Om Narkhede. All rights reserved. Made with ❤️, chai, and code in India.
+        </div>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Mail className="h-5 w-5" />
+          <a href="mailto:john@example.com" className="underline hover:text-primary transition-colors">john@example.com</a>
+        </div>
+        <div className="mt-3 text-xs italic text-muted-foreground transition-opacity duration-500 animate-pulse">
+          {quotes[quoteIndex]}
         </div>
       </div>
     </footer>

@@ -11,10 +11,10 @@ const Hero = () => {
   };
 
   const portfolioData = {
-    heading: "John Doe - Full Stack Developer",
-    description: "Passionate developer with 5+ years of experience building scalable web applications and beautiful user interfaces. I love turning complex problems into simple, elegant solutions.",
+    heading: "Om Narkhede",
+    description: "Computer Engineering student passionate about AI and software development. I love building innovative solutions that make technology simple and useful.",
     reviews: {
-      count: 150,
+      count: 100,
       avatars: [
         {
           src: "https://www.shadcnblocks.com/images/block/avatar-1.webp",
@@ -41,8 +41,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="py-32 bg-gradient-hero relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5"></div>
+    <section className="py-32 bg-black relative overflow-hidden">
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5"></div> */}
       
       <div className="container text-center relative z-10">
         <div className="mx-auto flex max-w-screen-lg flex-col gap-6">
