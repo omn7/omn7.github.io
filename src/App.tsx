@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import HackathonsSection from "@/components/sections/HackathonsSection";
 import BlogsSection from "@/components/sections/BlogsSection";
+import Resume from "./pages/Resume";
 // import { AnimeNavBarDemo } from "@/components/ui/anime-navbar-demo";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/hackathons" element={<HackathonsSection />} />
           <Route path="/blogs" element={<BlogsSection />} />
+          <Route path="/resume" element={<Resume />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -7,44 +7,44 @@ const HackathonsSection = () => {
   const hackathons = [
     {
       id: 1,
-      name: "TechCrunch Disrupt 2024",
-      date: "March 2024",
-      position: "Winner - Best AI Application",
-      description: "Built an AI-powered code review assistant that helps developers identify bugs and optimization opportunities in real-time.",
-      technologies: ["React", "Python", "OpenAI API", "Flask"],
+      name: "INOVATION FOUNDATION HACKATHON 2025",
+      date: "FEB 2025",
+      position: "First Hackathon",
+      description: "Built an Unified digital education platform covering all levels of from kindergarten to postgraduate",
+      technologies: ["React", "Typescript", "OpenAI API", "Tailwindcss"],
       teamSize: 4,
-      link: "https://example.com"
+      link: "https://github.com/omn7/hackathon/"
     },
-    {
-      id: 2,
-      name: "NASA Space Apps Challenge",
-      date: "October 2023",
-      position: "2nd Place - Global Category",
-      description: "Developed a web application for visualizing satellite data to help farmers optimize crop management and predict weather patterns.",
-      technologies: ["Vite.js", "D3.js", "NASA APIs", "Node.js"],
-      teamSize: 3,
-      link: "https://example.com"
-    },
-    {
-      id: 3,
-      name: "DevPost Climate Hackathon",
-      date: "June 2023",
-      position: "Top 10 Finalist",
-      description: "Created a mobile app that gamifies sustainable living by tracking carbon footprint and suggesting eco-friendly alternatives.",
-      technologies: ["React Native", "Firebase", "GraphQL", "TypeScript"],
-      teamSize: 2,
-      link: "https://example.com"
-    },
-    {
-      id: 4,
-      name: "MLH Local Hack Day",
-      date: "December 2022",
-      position: "Best Beginner Hack",
-      description: "Built my first full-stack web application - a study buddy matching platform for university students.",
-      technologies: ["HTML/CSS", "JavaScript", "MongoDB", "Express.js"],
-      teamSize: 1,
-      link: "https://example.com"
-    }
+    // {
+    //   id: 2,
+    //   name: "NASA Space Apps Challenge",
+    //   date: "October 2023",
+    //   position: "2nd Place - Global Category",
+    //   description: "Developed a web application for visualizing satellite data to help farmers optimize crop management and predict weather patterns.",
+    //   technologies: ["Vite.js", "D3.js", "NASA APIs", "Node.js"],
+    //   teamSize: 3,
+    //   link: "https://example.com"
+    // },
+    // {
+    //   id: 3,
+    //   name: "DevPost Climate Hackathon",
+    //   date: "June 2023",
+    //   position: "Top 10 Finalist",
+    //   description: "Created a mobile app that gamifies sustainable living by tracking carbon footprint and suggesting eco-friendly alternatives.",
+    //   technologies: ["React Native", "Firebase", "GraphQL", "TypeScript"],
+    //   teamSize: 2,
+    //   link: "https://example.com"
+    // },
+    // {
+    //   id: 4,
+    //   name: "MLH Local Hack Day",
+    //   date: "December 2022",
+    //   position: "Best Beginner Hack",
+    //   description: "Built my first full-stack web application - a study buddy matching platform for university students.",
+    //   technologies: ["HTML/CSS", "JavaScript", "MongoDB", "Express.js"],
+    //   teamSize: 1,
+    //   link: "https://example.com"
+    // }
   ];
 
   return (

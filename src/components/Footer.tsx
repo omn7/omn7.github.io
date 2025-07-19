@@ -34,7 +34,7 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col items-center justify-center gap-3 text-center">
         <div className="flex gap-5 mb-2">
           <a
-            href="https://github.com/johndoe"
+            href="https://github.com/omn7"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -43,7 +43,7 @@ const Footer = () => {
             <Github className="h-5 w-5 text-muted-foreground" />
           </a>
           <a
-            href="https://linkedin.com/in/johndoe"
+            href="https://linkedin.com/in/omnarkhede"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -52,7 +52,7 @@ const Footer = () => {
             <Linkedin className="h-5 w-5 text-muted-foreground" />
           </a>
           <a
-            href="https://twitter.com/johndoe"
+            href="https://x.com/mr_codex"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
@@ -62,11 +62,11 @@ const Footer = () => {
           </a>
         </div>
         <div className="text-base text-muted-foreground font-semibold">
-          &copy; {new Date().getFullYear()} Om Narkhede. All rights reserved. Made with ❤️, chai, and code in India.
+          &copy; {new Date().getFullYear()} Om Narkhede. All rights reserved. Made with ❤️.
         </div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <Mail className="h-5 w-5" />
-          <a href="mailto:john@example.com" className="underline hover:text-primary transition-colors">john@example.com</a>
+          <a href="mailto:dev.om@outlook.com" className="underline hover:text-primary transition-colors">dev.om@outlook.com</a>
         </div>
         <div className="mt-3 text-xs italic text-muted-foreground transition-opacity duration-500 animate-pulse">
           {quotes[quoteIndex]}

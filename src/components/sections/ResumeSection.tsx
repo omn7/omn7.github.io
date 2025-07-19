@@ -2,62 +2,38 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Download, Eye, FileText, Mail, Phone, MapPin, Globe, Linkedin, Github } from "lucide-react";
 
+const RESUME_URL = "https://drive.google.com/file/d/18hLKpHXs5nnMMX4swLNIBF86KPN5pJ_q/view?usp=sharing";
+
 const ResumeSection = () => {
   const handleDownload = () => {
-    // Create a sample resume download
-    const link = document.createElement('a');
-    link.href = '/sample-resume.pdf';
-    link.download = 'John_Doe_Resume.pdf';
-    link.click();
+    window.open(RESUME_URL, '_blank');
   };
 
   const handlePreview = () => {
-    // Open resume in new tab for preview
-    window.open('/sample-resume.pdf', '_blank');
+    window.open(RESUME_URL, '_blank');
   };
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "john.doe@email.com", link: "mailto:john.doe@email.com" },
-    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567", link: "tel:+15551234567" },
-    { icon: MapPin, label: "Location", value: "San Francisco, CA", link: "" },
-    { icon: Globe, label: "Website", value: "johndoe.dev", link: "https://johndoe.dev" },
-    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/johndoe", link: "https://linkedin.com/in/johndoe" },
-    { icon: Github, label: "GitHub", value: "github.com/johndoe", link: "https://github.com/johndoe" }
-  ];
-
-  const experience = [
-    {
-      title: "Senior Full Stack Developer",
-      company: "TechCorp Inc.",
-      period: "2022 - Present",
-      description: "Lead development of scalable web applications using React, Node.js, and AWS. Mentored junior developers and improved team productivity by 40%."
-    },
-    {
-      title: "Frontend Developer",
-      company: "StartupXYZ",
-      period: "2020 - 2022",
-      description: "Built responsive web applications with React and TypeScript. Collaborated with designers to implement pixel-perfect UI components."
-    },
-    {
-      title: "Junior Web Developer",
-      company: "Digital Agency",
-      period: "2019 - 2020",
-      description: "Developed custom WordPress themes and plugins. Worked on client projects ranging from small business websites to e-commerce platforms."
-    }
+    { icon: Mail, label: "Email", value: "dev.om@outlook.com", link: "mailto:dev.om@outlook.com" },
+   
+    { icon: MapPin, label: "Location", value: "Pune", link: "" },
+    { icon: Globe, label: "Website", value: "omn7.github.io", link: "https://omn7.github.io" },
+    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/omnarkhede", link: "https://linkedin.com/in/omnarkhede" },
+    { icon: Github, label: "GitHub", value: "github.com/omn7", link: "https://github.com/omn7" }
   ];
 
   const education = [
     {
-      degree: "Bachelor of Science in Computer Science",
-      institution: "University of Technology",
-      period: "2015 - 2019",
-      gpa: "3.8/4.0"
+      degree: "Bachelor of Engineering in Computer Science",
+      institution: "Bharati Vidyapeeth College of Engineering Pune",
+      period: "2024 - 2028",
+      gpa: "8.4/10.0"
     },
     {
-      degree: "AWS Certified Solutions Architect",
-      institution: "Amazon Web Services",
-      period: "2023",
-      gpa: ""
+      degree: "class 12th ",
+      institution: "Kothari High School & Jr College",
+      period: "2022-2024",
+      gpa: "7.75/10.0"
     }
   ];
 
@@ -69,7 +45,6 @@ const ResumeSection = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Download my complete resume or preview it online. Get in touch if you'd like to discuss opportunities.
           </p>
-          
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={handleDownload}
@@ -124,30 +99,8 @@ const ResumeSection = () => {
             </Card>
           </div>
 
-          {/* Experience & Education */}
+          {/* Education Only */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Experience */}
-            <Card className="bg-card border-border shadow-card-custom">
-              <CardHeader>
-                <CardTitle className="text-card-foreground">Professional Experience</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {experience.map((exp, index) => (
-                  <div key={index} className="border-l-2 border-primary/20 pl-6 relative">
-                    <div className="absolute -left-2 top-0 w-3 h-3 bg-primary rounded-full"></div>
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-card-foreground">{exp.title}</h4>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                        <p className="text-primary font-medium">{exp.company}</p>
-                        <p className="text-sm text-muted-foreground">{exp.period}</p>
-                      </div>
-                      <p className="text-card-foreground/80 leading-relaxed">{exp.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
             {/* Education */}
             <Card className="bg-card border-border shadow-card-custom">
               <CardHeader>
