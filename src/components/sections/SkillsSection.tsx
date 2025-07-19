@@ -112,9 +112,9 @@ const SkillsSection = () => {
             ].map((competency, index) => (
               <div
                 key={index}
-                className="p-6 bg-card border border-border rounded-lg hover:shadow-card-custom transition-all duration-300 group"
+                className="p-4 bg-card border border-border rounded-lg hover:shadow-card-custom transition-all duration-300 group break-words"
               >
-                <h4 className="font-medium text-card-foreground group-hover:text-primary transition-colors">
+                <h4 className="font-medium text-card-foreground group-hover:text-primary transition-colors text-xs sm:text-sm break-words">
                   {competency}
                 </h4>
               </div>

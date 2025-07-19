@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 const Navigation = () => {
   const location = useLocation();
   const [open, setOpen] = useState(false);
+
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/hackathons", label: "Hackathons" },
@@ -13,10 +14,12 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-transparent">
+    <nav className="sticky top-0 z-50 bg-black/60 backdrop-blur-md">
       <div className="w-full flex justify-center items-center relative">
         {/* Desktop nav */}
-        <div className="hidden sm:flex space-x-1 bg-black/50 backdrop-blur-md rounded-full px-4 py-2 mt-3">
+        <div
+          className="hidden sm:flex space-x-1 bg-black/60 backdrop-blur-md rounded-full px-4 py-2 mt-3 transition-transform duration-300"
+        >
           {navLinks.map((link) => {
             const isActive = location.pathname === link.to;
             return (
@@ -44,7 +47,7 @@ const Navigation = () => {
         <div className="flex sm:hidden w-full justify-between items-center px-4 py-2">
           <span className="font-bold text-lg">Om</span>
           <button
-            className="p-2 rounded-full bg-black/50 backdrop-blur-md text-white"
+            className="p-2 rounded-full bg-black/60 backdrop-blur-md text-white"
             onClick={() => setOpen((v) => !v)}
             aria-label="Open navigation menu"
           >
@@ -53,7 +56,7 @@ const Navigation = () => {
         </div>
         {/* Dropdown menu */}
         {open && (
-          <div className="absolute top-full left-0 w-full bg-black/80 backdrop-blur-md rounded-b-2xl shadow-lg flex flex-col items-center py-4 animate-fade-in z-50 sm:hidden">
+          <div className="absolute top-full left-0 w-full bg-black/60 backdrop-blur-md rounded-b-2xl shadow-lg flex flex-col items-center py-4 animate-fade-in z-50 sm:hidden">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to;
               return (
