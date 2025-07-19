@@ -50,6 +50,14 @@ const Hero = () => {
               Download Resume
             </Button>
             
+            <Button 
+              variant="outline" 
+              className="px-6 py-3 rounded-lg font-medium hover:bg-nav-hover border-border"
+              onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              View Skills
+            </Button>
+            
             <div className="flex gap-4">
               <Button variant="outline" size="icon" className="rounded-lg hover:bg-nav-hover border-border">
                 <Github className="h-5 w-5" />
