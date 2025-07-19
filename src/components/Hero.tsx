@@ -1,74 +1,88 @@
+import { Star, Download } from "lucide-react";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Download, Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   const handleResumeDownload = () => {
-    // Create a sample resume download link
     const link = document.createElement('a');
-    link.href = '/sample-resume.pdf'; // You can replace this with actual resume URL
+    link.href = '/sample-resume.pdf';
     link.download = 'Resume.pdf';
     link.click();
   };
 
+  const portfolioData = {
+    heading: "John Doe - Full Stack Developer",
+    description: "Passionate developer with 5+ years of experience building scalable web applications and beautiful user interfaces. I love turning complex problems into simple, elegant solutions.",
+    reviews: {
+      count: 150,
+      avatars: [
+        {
+          src: "https://www.shadcnblocks.com/images/block/avatar-1.webp",
+          alt: "Client 1",
+        },
+        {
+          src: "https://www.shadcnblocks.com/images/block/avatar-2.webp", 
+          alt: "Client 2",
+        },
+        {
+          src: "https://www.shadcnblocks.com/images/block/avatar-3.webp",
+          alt: "Client 3",
+        },
+        {
+          src: "https://www.shadcnblocks.com/images/block/avatar-4.webp",
+          alt: "Client 4",
+        },
+        {
+          src: "https://www.shadcnblocks.com/images/block/avatar-5.webp",
+          alt: "Client 5",
+        },
+      ],
+    },
+  };
+
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden">
-      {/* Background glow effect */}
+    <section className="py-32 bg-gradient-hero relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/5"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center space-y-8">
-          {/* Profile Image */}
-          <div className="relative mx-auto w-32 h-32 rounded-full bg-gradient-accent p-1 shadow-glow">
-            <div className="w-full h-full rounded-full bg-muted flex items-center justify-center text-4xl font-bold text-primary">
-              JD
-            </div>
-          </div>
-
-          {/* Name and Title */}
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight">
-              John Doe
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-light">
-              Full Stack Developer & UI/UX Designer
-            </p>
-          </div>
-
-          {/* Bio */}
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Passionate developer with 5+ years of experience building scalable web applications
-            and beautiful user interfaces. I love turning complex problems into simple, elegant solutions.
+      <div className="container text-center relative z-10">
+        <div className="mx-auto flex max-w-screen-lg flex-col gap-6">
+          <h1 className="text-3xl font-extrabold lg:text-6xl text-foreground">
+            {portfolioData.heading}
+          </h1>
+          <p className="text-balance text-muted-foreground lg:text-lg">
+            {portfolioData.description}
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button 
-              onClick={handleResumeDownload}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-glow"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              className="px-6 py-3 rounded-lg font-medium hover:bg-nav-hover border-border"
-              onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              View Skills
-            </Button>
-            
-            <div className="flex gap-4">
-              <Button variant="outline" size="icon" className="rounded-lg hover:bg-nav-hover border-border">
-                <Github className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-lg hover:bg-nav-hover border-border">
-                <Linkedin className="h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="icon" className="rounded-lg hover:bg-nav-hover border-border">
-                <Mail className="h-5 w-5" />
-              </Button>
+        </div>
+        
+        <Button 
+          onClick={handleResumeDownload}
+          size="lg" 
+          className="mt-10 bg-primary hover:bg-primary/90 text-primary-foreground"
+        >
+          <Download className="mr-2 h-5 w-5" />
+          Download Resume
+        </Button>
+        
+        <div className="mx-auto mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row">
+          <span className="mx-4 inline-flex items-center -space-x-4">
+            {portfolioData.reviews.avatars.map((avatar, index) => (
+              <Avatar key={index} className="size-14 border">
+                <AvatarImage src={avatar.src} alt={avatar.alt} />
+              </Avatar>
+            ))}
+          </span>
+          <div>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, index) => (
+                <Star
+                  key={index}
+                  className="size-5 fill-yellow-400 text-yellow-400"
+                />
+              ))}
             </div>
+            <p className="text-left font-medium text-muted-foreground">
+              from {portfolioData.reviews.count}+ satisfied clients
+            </p>
           </div>
         </div>
       </div>

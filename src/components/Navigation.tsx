@@ -8,6 +8,8 @@ interface NavigationProps {
 
 const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
   const tabs = [
+    { id: 'hackathons', label: 'Hackathons' },
+    { id: 'blogs', label: 'Blogs' },
     { id: 'skills', label: 'Skills' },
     { id: 'resume', label: 'Resume' }
   ];
